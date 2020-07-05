@@ -29,6 +29,22 @@ Great thanks to leetcode.com, a really awesome website!
 * Multiple <kbd>[**THEMES**](https://skygragon.github.io/leetcode-cli/advanced#color-themes)</kbd> support.
 * More <kbd>[**PLUGINS**](https://skygragon.github.io/leetcode-cli/advanced#plugins)</kbd> to enjoy extra features!
 
+## Personal Change
+Add three more features for List command.
+1. `-c` to generate .csv format file for all questions. will include companies tag and companies with 3 differnt time period column. Example useage: `leetcode list -c`
+2. `-o` to set .csv format file output directory. Default directory: `~/.lc`
+3. `-p` to filter questions by 3 different time period:
+   - `1` for questions in recent 0~6 months
+   - `2` for questions in recent one year
+   - `3` for questions in recent two years
+   - **Should be used with `-t` and with company filter words**
+   - Example useage: `leetcode list -t netfilx -p 1`
+
+Add updateData function for Company plugin. function will include following feature.
+1. Update company tag if current user is vip user.
+2. Will use default value to set company tag if current user is not vip user.(data updated at 2020.06.21)
+3. Will store current company tags setting in `~/.lc/leetcode/cache/COMPONIES.json` and `~/.lc/leetcode/cache/TAGS.json` and try to update it if the file is missing.
+
 ## Screenshot
 
 <kbd><img src="https://github.com/skygragon/leetcode-cli/raw/master/docs/screenshots/intro.2018.01.13.gif" /></kbd>
@@ -42,3 +58,4 @@ Great thanks to leetcode.com, a really awesome website!
 	Coding it!
 	Run test(s) and pray...                 $ leetcode test ./two-sum.cpp -t '[3,2,4]\n7'
 	Submit final solution!                  $ leetcode submit ./two-sum.cpp
+
